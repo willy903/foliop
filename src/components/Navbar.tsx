@@ -32,13 +32,13 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
         isScrolled
           ? 'bg-white shadow-lg py-4'
           : 'bg-transparent py-6'
       }`}
     >
-      <div className="container mx-auto px-6">
+      <div className="w-[90%] mx-auto px-6">
         <div className="flex items-center justify-between">
           <a
             href="#hero"

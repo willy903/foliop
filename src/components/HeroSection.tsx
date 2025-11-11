@@ -28,7 +28,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="hero" className="w-full min-h-screen flex items-center justify-center relative overflow-hidden">
       <div className="absolute inset-0">
         {carouselImages.map((image, index) => (
           <div

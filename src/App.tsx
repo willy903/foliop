@@ -11,8 +11,8 @@ function App() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
+      <HeroSection />
       <div className="w-[90%] mx-auto">
-        <HeroSection />
         <About />
         <OurService />
         <Blog />
