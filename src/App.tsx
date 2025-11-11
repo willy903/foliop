@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import About from './components/About';
 import OurService from './components/OurService';
+import Technologies from './components/Technologies';
 import Blog from './components/Blog';
 import ProjetRealiser from './components/ProjetRealiser';
 import Contact from './components/Contact';
@@ -16,6 +17,7 @@ function HomePage() {
       <div className="w-[90%] mx-auto">
         <About />
         <OurService />
+        <Technologies />
         <Blog />
         <ProjetRealiser />
         <Contact />
