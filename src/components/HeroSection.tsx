@@ -78,9 +78,7 @@ export default function HeroSection() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-6 inline-block">
-            <div className="w-32 h-32 bg-[rgb(240,45,58)] rounded-full mx-auto flex items-center justify-center text-white text-4xl font-bold shadow-2xl">
-              SW DEV
-            </div>
+            <img src="/logo officiel.png" alt="SW DEV Logo" className="w-48 h-auto mx-auto" />
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">

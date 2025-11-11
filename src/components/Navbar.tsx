@@ -18,7 +18,7 @@ export default function Navbar() {
     { href: '#hero', label: 'Accueil' },
     { href: '#services', label: 'Services' },
     { href: '#projets', label: 'Projets' },
-    { href: '#testimonials', label: 'Témoignages' },
+    { href: '#blog', label: 'Blog' },
     { href: '#contact', label: 'Contact' },
   ];
 
@@ -46,12 +46,9 @@ export default function Navbar() {
               e.preventDefault();
               handleNavClick('#hero');
             }}
-            className="text-2xl font-bold"
+            className="flex items-center gap-2"
           >
-            <span className={isScrolled ? 'text-gray-900' : 'text-white'}>
-              SW
-            </span>
-            <span className="text-[rgb(240,45,58)]"> DEV</span>
+            <img src="/logo officiel.png" alt="SW DEV Logo" className="h-12 w-auto" />
           </a>
 
           <div className="hidden md:flex items-center gap-8">

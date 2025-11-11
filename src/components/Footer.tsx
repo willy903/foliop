@@ -8,9 +8,7 @@ export default function Footer() {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="text-2xl font-bold mb-4">
-              <span className="text-[rgb(240,45,58)]">SW</span> DEV
-            </h3>
+            <img src="/logo officiel.png" alt="SW DEV Logo" className="h-16 w-auto mb-4" />
             <p className="text-gray-400 leading-relaxed">
               Société de services informatiques à Madagascar, créant des solutions web modernes et performantes.
             </p>
@@ -32,6 +30,11 @@ export default function Footer() {
               <li>
                 <a href="#projets" className="text-gray-400 hover:text-[rgb(240,45,58)] transition-colors duration-300">
                   Projets
+                </a>
+              </li>
+              <li>
+                <a href="#blog" className="text-gray-400 hover:text-[rgb(240,45,58)] transition-colors duration-300">
+                  Blog
                 </a>
               </li>
               <li>
