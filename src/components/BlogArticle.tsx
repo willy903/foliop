@@ -1,4 +1,5 @@
 import { ArrowLeft, Calendar, User } from 'lucide-react';
+import { useParams, Link } from 'react-router-dom';
 
 const articleContent: Record<string, { title: string; date: string; author: string; category: string; fullContent: string }> = {
   'tendances-web-design': {
@@ -132,8 +133,9 @@ const articleContent: Record<string, { title: string; date: string; author: stri
   },
 };
 
-export default function BlogArticle({ articleId }: { articleId: string }) {
-  const article = articleContent[articleId];
+export default function BlogArticle() {
+  const { articleId } = useParams<{ articleId: string }>();
+  const article = articleId ? articleContent[articleId] : null;
 
   if (!article) {
     return (
@@ -141,9 +143,9 @@ export default function BlogArticle({ articleId }: { articleId: string }) {
         <div className="w-[90%] mx-auto py-20">
           <div className="text-center">
             <h1 className="text-4xl font-bold text-gray-900 mb-4">Article non trouvé</h1>
-            <a href="/#blog" className="text-[rgb(240,45,58)] hover:text-[rgb(220,35,48)] font-semibold">
+            <Link to="/#blog" className="text-[rgb(240,45,58)] hover:text-[rgb(220,35,48)] font-semibold">
               Retour au blog
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -153,13 +155,13 @@ export default function BlogArticle({ articleId }: { articleId: string }) {
   return (
     <div className="min-h-screen bg-white">
       <div className="w-[90%] mx-auto py-16">
-        <a
-          href="/#blog"
+        <Link
+          to="/#blog"
           className="flex items-center gap-2 text-[rgb(240,45,58)] hover:text-[rgb(220,35,48)] font-semibold mb-8 transition-colors duration-300"
         >
           <ArrowLeft className="w-5 h-5" />
           <span>Retour au blog</span>
-        </a>
+        </Link>
 
         <article className="max-w-3xl">
           <div className="flex items-center gap-6 text-sm text-gray-600 mb-8">

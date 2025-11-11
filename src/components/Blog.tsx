@@ -1,6 +1,5 @@
 import { Calendar, User, ArrowRight } from 'lucide-react';
-import { useState } from 'react';
-import BlogArticle from './BlogArticle';
+import { Link } from 'react-router-dom';
 
 const articles = [
   {
@@ -33,12 +32,6 @@ const articles = [
 ];
 
 export default function Blog() {
-  const [selectedArticleId, setSelectedArticleId] = useState<string | null>(null);
-
-  if (selectedArticleId) {
-    return <BlogArticle articleId={selectedArticleId} />;
-  }
-
   return (
     <section id="blog" className="py-20 bg-white">
       <div className="container mx-auto px-6">
@@ -90,13 +83,13 @@ export default function Blog() {
                   {article.excerpt}
                 </p>
 
-                <button
-                  onClick={() => setSelectedArticleId(article.id)}
+                <Link
+                  to={`/blog/${article.id}`}
                   className="flex items-center gap-2 text-[rgb(240,45,58)] hover:text-[rgb(220,35,48)] font-semibold transition-colors duration-300 group"
                 >
                   <span>Lire la suite</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                </button>
+                </Link>
               </div>
             </article>
           ))}

@@ -1,3 +1,4 @@
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import About from './components/About';
@@ -6,11 +7,11 @@ import Blog from './components/Blog';
 import ProjetRealiser from './components/ProjetRealiser';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import BlogArticle from './components/BlogArticle';
 
-function App() {
+function HomePage() {
   return (
-    <div className="min-h-screen bg-white">
-      <Navbar />
+    <>
       <HeroSection />
       <div className="w-[90%] mx-auto">
         <About />
@@ -19,6 +20,18 @@ function App() {
         <ProjetRealiser />
         <Contact />
       </div>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <div className="min-h-screen bg-white">
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/blog/:articleId" element={<BlogArticle />} />
+      </Routes>
       <Footer />
     </div>
   );
