@@ -10,8 +10,11 @@ const carouselImages = [
 
 export default function HeroSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    setIsVisible(true);
+
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % carouselImages.length);
     }, 5000);
@@ -51,14 +54,14 @@ export default function HeroSection() {
 
       <button
         onClick={prevImage}
-        className="absolute left-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-all duration-300"
+        className="absolute left-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-all duration-300 hover:scale-110"
       >
         <ChevronLeft className="w-6 h-6 text-white" />
       </button>
 
       <button
         onClick={nextImage}
-        className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-all duration-300"
+        className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-all duration-300 hover:scale-110"
       >
         <ChevronRight className="w-6 h-6 text-white" />
       </button>
@@ -68,7 +71,7 @@ export default function HeroSection() {
           <button
             key={index}
             onClick={() => setCurrentImageIndex(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+            className={`w-2 h-2 rounded-full transition-all duration-300 hover:scale-125 ${
               index === currentImageIndex ? 'bg-[rgb(240,45,58)] w-8' : 'bg-white/50'
             }`}
           />
@@ -77,32 +80,40 @@ export default function HeroSection() {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Donnez Vie à Vos Ambitions
-            <span className="block text-[rgb(240,45,58)] mt-2">Avec des Solutions Web d'Excellence</span>
+          <h1 className={`text-5xl md:text-7xl font-bold text-white mb-6 leading-tight transform transition-all duration-1000 ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+          }`}>
+            Transformez Vos Idées
+            <span className="block text-[rgb(240,45,58)] mt-2">En Solutions Web</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-200 mb-12 leading-relaxed max-w-3xl mx-auto">
-            Expert en développement web à Madagascar, nous créons des sites performants, élégants et sur mesure qui propulsent votre entreprise vers le succès digital
+          <p className={`text-xl md:text-2xl text-gray-200 mb-12 leading-relaxed max-w-3xl mx-auto transform transition-all duration-1000 delay-300 ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+          }`}>
+            Développement web moderne à Madagascar
           </p>
 
-          <div className="flex flex-wrap gap-4 justify-center mb-12">
-            <a href="#contact" className="bg-[rgb(240,45,58)] text-white px-10 py-5 rounded-lg font-bold hover:bg-[rgb(220,35,48)] transition-all duration-300 shadow-2xl hover:shadow-[0_20px_50px_rgba(240,45,58,0.5)] transform hover:scale-105">
-              Démarrez Votre Projet
+          <div className={`flex flex-wrap gap-4 justify-center mb-12 transform transition-all duration-1000 delay-500 ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+          }`}>
+            <a href="#contact" className="bg-[rgb(240,45,58)] text-white px-10 py-5 rounded-lg font-bold hover:bg-[rgb(220,35,48)] transition-all duration-300 shadow-2xl hover:shadow-[0_20px_50px_rgba(240,45,58,0.5)] transform hover:scale-105 hover:-translate-y-1">
+              Démarrer
             </a>
-            <a href="#projets" className="bg-white/10 backdrop-blur-md text-white border-2 border-white/30 px-10 py-5 rounded-lg font-bold hover:bg-white/20 hover:border-white/50 transition-all duration-300 shadow-2xl transform hover:scale-105">
-              Découvrir Nos Réalisations
+            <a href="#projets" className="bg-white/10 backdrop-blur-md text-white border-2 border-white/30 px-10 py-5 rounded-lg font-bold hover:bg-white/20 hover:border-white/50 transition-all duration-300 shadow-2xl transform hover:scale-105 hover:-translate-y-1">
+              Nos Projets
             </a>
           </div>
 
-          <div className="flex gap-6 justify-center">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[rgb(240,45,58)] transition-colors duration-300">
+          <div className={`flex gap-6 justify-center transform transition-all duration-1000 delay-700 ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+          }`}>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[rgb(240,45,58)] transition-all duration-300 hover:scale-125 transform">
               <Github className="w-6 h-6" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[rgb(240,45,58)] transition-colors duration-300">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[rgb(240,45,58)] transition-all duration-300 hover:scale-125 transform">
               <Linkedin className="w-6 h-6" />
             </a>
-            <a href="mailto:contact@swdev.mg" className="text-gray-300 hover:text-[rgb(240,45,58)] transition-colors duration-300">
+            <a href="mailto:contact@swdev.mg" className="text-gray-300 hover:text-[rgb(240,45,58)] transition-all duration-300 hover:scale-125 transform">
               <Mail className="w-6 h-6" />
             </a>
           </div>
