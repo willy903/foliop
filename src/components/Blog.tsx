@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 const articles = [
   {
     id: 'tendances-web-design',
-    title: 'Les Tendances du Web Design en 2025',
-    excerpt: 'Découvrez les dernières tendances qui transforment le monde du web design et comment les intégrer dans vos projets pour rester à la pointe de l\'innovation.',
+    title: 'Web Design 2025 : Les 5 Tendances Incontournables',
+    excerpt: 'Du minimalisme radical aux interfaces immersives, découvrez les tendances qui révolutionnent le web design et comment les implémenter pour captiver vos utilisateurs et dominer votre marché.',
     date: '15 Janvier 2025',
     author: 'HERINIAINA Willy',
     image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800',
@@ -13,8 +13,8 @@ const articles = [
   },
   {
     id: 'optimiser-performances',
-    title: 'Comment Optimiser les Performances de Votre Site Web',
-    excerpt: 'Apprenez les meilleures pratiques pour améliorer la vitesse de chargement et les performances globales de votre site web pour une meilleure expérience utilisateur.',
+    title: 'Performances Web : Guide Complet pour un Site Ultra-Rapide',
+    excerpt: 'Techniques avancées et astuces prouvées pour transformer votre site en véritable machine de conversion. Optimisez images, code et serveur pour gagner en vitesse, en SEO et en taux de conversion.',
     date: '10 Janvier 2025',
     author: 'HERINIAINA Willy',
     image: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800',
@@ -22,8 +22,8 @@ const articles = [
   },
   {
     id: 'mobile-first',
-    title: 'L\'Importance du Mobile First dans le Développement Web',
-    excerpt: 'Pourquoi adopter une approche mobile first est essentiel pour réussir dans le paysage numérique actuel et comment l\'implémenter efficacement.',
+    title: 'Mobile First : La Stratégie Gagnante pour 2025',
+    excerpt: 'Avec 70% du trafic web sur mobile, une approche mobile-first n\'est plus optionnelle. Découvrez comment concevoir des expériences mobiles exceptionnelles qui boostent engagement et conversions.',
     date: '5 Janvier 2025',
     author: 'HERINIAINA Willy',
     image: 'https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=800',
@@ -48,12 +48,12 @@ export default function Blog() {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Notre <span className="text-[rgb(240,45,58)]">Blog</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Découvrez nos derniers articles sur le développement web, le design et les technologies
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Conseils d'experts, tendances du secteur et guides pratiques pour réussir votre transformation digitale et rester compétitif
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {articles.map((article) => (
             <article
               key={article.id}

@@ -22,14 +22,17 @@ export default function Contact() {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Contactez-<span className="text-[rgb(240,45,58)]">Nous</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Un projet en tête ? Discutons-en ensemble
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Prêt à propulser votre entreprise dans l'ère digitale ? Parlons de votre vision et transformons-la en réalité exceptionnelle
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
           <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Envoyez-nous un message</h3>
+            <div className="mb-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Partagez Votre Projet</h3>
+              <p className="text-gray-600">Réponse garantie sous 24h</p>
+            </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -42,7 +45,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[rgb(240,45,58)] focus:border-transparent outline-none transition-all duration-300"
-                  placeholder="Votre nom"
+                  placeholder="Ex: Jean Rakoto"
                   required
                 />
               </div>
@@ -57,7 +60,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[rgb(240,45,58)] focus:border-transparent outline-none transition-all duration-300"
-                  placeholder="votre@email.com"
+                  placeholder="Ex: contact@votreentreprise.mg"
                   required
                 />
               </div>
@@ -72,7 +75,7 @@ export default function Contact() {
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   rows={6}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[rgb(240,45,58)] focus:border-transparent outline-none transition-all duration-300 resize-none"
-                  placeholder="Votre message..."
+                  placeholder="Décrivez votre projet, vos objectifs et vos délais..."
                   required
                 ></textarea>
               </div>
@@ -82,13 +85,16 @@ export default function Contact() {
                 className="w-full bg-[rgb(240,45,58)] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[rgb(220,35,48)] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center gap-2"
               >
                 <Send className="w-5 h-5" />
-                <span>Envoyer le message</span>
+                <span>Lancer la Discussion</span>
               </button>
             </form>
           </div>
 
           <div className="space-y-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Informations de contact</h3>
+            <div className="mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Restons Connectés</h3>
+              <p className="text-gray-600">Plusieurs façons de nous joindre</p>
+            </div>
 
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-[rgb(240,45,58)] bg-opacity-10 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -121,9 +127,9 @@ export default function Contact() {
             </div>
 
             <div className="bg-gray-50 p-6 rounded-xl mt-8">
-              <h4 className="font-bold text-gray-900 mb-3">Disponibilité</h4>
+              <h4 className="font-bold text-gray-900 mb-3">Capacité Disponible</h4>
               <p className="text-gray-600 leading-relaxed">
-                Nous sommes actuellement disponibles pour de nouveaux projets. N'hésitez pas à nous contacter pour discuter de vos besoins.
+                <strong className="text-[rgb(240,45,58)]">Places limitées :</strong> Nous acceptons actuellement 3 nouveaux projets ce mois-ci. Contactez-nous rapidement pour réserver votre créneau et bénéficier d'un accompagnement personnalisé.
               </p>
             </div>
           </div>

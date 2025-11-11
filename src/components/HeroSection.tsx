@@ -78,20 +78,20 @@ export default function HeroSection() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Transformez Votre Vision
-            <span className="block text-[rgb(240,45,58)] mt-2">En Réalité Numérique</span>
+            Donnez Vie à Vos Ambitions
+            <span className="block text-[rgb(240,45,58)] mt-2">Avec des Solutions Web d'Excellence</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-200 mb-12 leading-relaxed">
-            Créez des expériences web exceptionnelles avec nos solutions innovantes et performantes
+          <p className="text-xl md:text-2xl text-gray-200 mb-12 leading-relaxed max-w-3xl mx-auto">
+            Expert en développement web à Madagascar, nous créons des sites performants, élégants et sur mesure qui propulsent votre entreprise vers le succès digital
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center mb-12">
-            <a href="#contact" className="bg-[rgb(240,45,58)] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[rgb(220,35,48)] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-              Nous Contacter
+            <a href="#contact" className="bg-[rgb(240,45,58)] text-white px-10 py-5 rounded-lg font-bold hover:bg-[rgb(220,35,48)] transition-all duration-300 shadow-2xl hover:shadow-[0_20px_50px_rgba(240,45,58,0.5)] transform hover:scale-105">
+              Démarrez Votre Projet
             </a>
-            <a href="#projets" className="bg-white text-gray-900 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-              Voir Nos Projets
+            <a href="#projets" className="bg-white/10 backdrop-blur-md text-white border-2 border-white/30 px-10 py-5 rounded-lg font-bold hover:bg-white/20 hover:border-white/50 transition-all duration-300 shadow-2xl transform hover:scale-105">
+              Découvrir Nos Réalisations
             </a>
           </div>
 
