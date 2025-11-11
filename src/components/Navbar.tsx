@@ -71,8 +71,14 @@ export default function Navbar() {
                   e.preventDefault();
                   handleNavClick(link.href);
                 }}
-                className={`font-medium transition-colors duration-300 hover:text-[rgb(240,45,58)] ${
-                  isScrolled ? 'text-gray-700' : 'text-white'
+                className={`font-medium transition-all duration-300 hover:text-[rgb(240,45,58)] ${
+                  link.label === 'Contact'
+                    ? `px-6 py-2 rounded-full transition-all duration-300 ${
+                        isScrolled
+                          ? 'bg-[rgb(240,45,58)] text-white hover:bg-[rgb(220,35,48)] hover:shadow-lg'
+                          : 'bg-white/20 backdrop-blur-sm text-white hover:bg-white/30'
+                      }`
+                    : `${isScrolled ? 'text-gray-700' : 'text-white'}`
                 }`}
               >
                 {link.label}
