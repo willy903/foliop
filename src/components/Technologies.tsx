@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 const technologies = [
   {
     category: 'Frontend',
-    color: 'from-blue-500 to-cyan-500',
+    color: 'from-[rgb(240,45,58)] to-[rgb(220,35,48)]',
     tools: [
       { name: 'React', icon: '⚛️' },
       { name: 'Angular', icon: '🅰️' },
@@ -14,22 +14,24 @@ const technologies = [
   },
   {
     category: 'Backend',
-    color: 'from-green-500 to-emerald-500',
+    color: 'from-[rgb(230,80,70)] to-[rgb(240,100,85)]',
     tools: [
       { name: 'Java Spring Boot', icon: '☕' },
+      { name: 'Node.js', icon: '🟢' },
       { name: 'PHP', icon: '🐘' },
     ],
   },
   {
     category: 'Automatisation',
-    color: 'from-purple-500 to-pink-500',
+    color: 'from-[rgb(255,100,60)] to-[rgb(250,110,75)]',
     tools: [
       { name: 'N8N', icon: '🤖' },
+      { name: 'Zapier', icon: '⚡' },
     ],
   },
   {
     category: 'CMS',
-    color: 'from-orange-500 to-red-500',
+    color: 'from-[rgb(255,130,80)] to-[rgb(255,145,95)]',
     tools: [
       { name: 'WordPress', icon: '📝' },
       { name: 'PrestaShop', icon: '🛒' },
@@ -37,7 +39,7 @@ const technologies = [
   },
   {
     category: 'Design',
-    color: 'from-pink-500 to-rose-500',
+    color: 'from-[rgb(255,80,60)] to-[rgb(255,100,75)]',
     tools: [
       { name: 'Figma', icon: '🎨' },
       { name: 'Adobe XD', icon: '✨' },
