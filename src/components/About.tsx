@@ -1,6 +1,41 @@
 import { Check, Users, Target, Zap } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function About() {
+  const [visibleSections, setVisibleSections] = useState({
+    values: false,
+    strengths: false,
+    approach: false,
+  });
+  const valuesRef = useRef(null);
+  const strengthsRef = useRef(null);
+  const approachRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (entry.target === valuesRef.current) {
+              setVisibleSections((prev) => ({ ...prev, values: true }));
+            } else if (entry.target === strengthsRef.current) {
+              setVisibleSections((prev) => ({ ...prev, strengths: true }));
+            } else if (entry.target === approachRef.current) {
+              setVisibleSections((prev) => ({ ...prev, approach: true }));
+            }
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    [valuesRef, strengthsRef, approachRef].forEach((ref) => {
+      if (ref.current) observer.observe(ref.current);
+    });
+
+    return () => observer.disconnect();
+  }, []);
   const values = [
     {
       icon: Target,
@@ -55,10 +90,18 @@ export default function About() {
               construisons pas seulement des sites web, nous bâtissons des leviers de croissance pour votre business.
             </p>
 
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-4" ref={valuesRef}>
               {values.map((value, index) => (
-                <div key={index} className="text-center">
-                  <div className="w-14 h-14 bg-[rgb(240,45,58)] bg-opacity-10 rounded-lg flex items-center justify-center mx-auto mb-3 group hover:bg-[rgb(240,45,58)] transition-colors duration-300">
+                <div
+                  key={index}
+                  className={`text-center transform transition-all duration-500 ${
+                    visibleSections.values
+                      ? 'translate-y-0 opacity-100'
+                      : 'translate-y-8 opacity-0'
+                  }`}
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                >
+                  <div className="w-14 h-14 bg-[rgb(240,45,58)] bg-opacity-10 rounded-lg flex items-center justify-center mx-auto mb-3 group hover:bg-[rgb(240,45,58)] transition-all duration-300 hover:scale-110 hover:-rotate-3">
                     <value.icon className="w-7 h-7 text-[rgb(240,45,58)] group-hover:text-white transition-colors duration-300" />
                   </div>
                   <h4 className="font-bold text-gray-900">{value.title}</h4>
@@ -67,12 +110,20 @@ export default function About() {
             </div>
           </div>
 
-          <div>
+          <div ref={strengthsRef}>
             <h3 className="text-3xl font-bold text-gray-900 mb-6">Pourquoi Nous Choisir ?</h3>
             <div className="space-y-4">
               {strengths.map((strength, index) => (
-                <div key={index} className="flex items-start gap-4">
-                  <div className="w-6 h-6 bg-[rgb(240,45,58)] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <div
+                  key={index}
+                  className={`flex items-start gap-4 transform transition-all duration-500 ${
+                    visibleSections.strengths
+                      ? 'translate-x-0 opacity-100'
+                      : '-translate-x-8 opacity-0'
+                  }`}
+                  style={{ transitionDelay: `${index * 80}ms` }}
+                >
+                  <div className="w-6 h-6 bg-[rgb(240,45,58)] rounded-full flex items-center justify-center flex-shrink-0 mt-1 group hover:scale-125 transition-transform duration-300">
                     <Check className="w-4 h-4 text-white" />
                   </div>
                   <p className="text-gray-600 text-lg leading-relaxed">{strength}</p>
@@ -80,7 +131,7 @@ export default function About() {
               ))}
             </div>
 
-            <div className="mt-10 bg-gradient-to-br from-[rgb(240,45,58)] to-[rgb(220,35,48)] p-8 rounded-xl text-white">
+            <div className="mt-10 bg-gradient-to-br from-[rgb(240,45,58)] to-[rgb(220,35,48)] p-8 rounded-xl text-white transform transition-all duration-700 hover:shadow-2xl hover:scale-105 cursor-pointer">
               <h4 className="text-xl font-bold mb-3">Votre Projet Mérite l'Excellence</h4>
               <p className="mb-6">
                 Ne laissez pas vos concurrents prendre l'avance. Transformons ensemble votre vision en une
@@ -88,7 +139,7 @@ export default function About() {
               </p>
               <a
                 href="#contact"
-                className="inline-block bg-white text-[rgb(240,45,58)] px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300"
+                className="inline-block bg-white text-[rgb(240,45,58)] px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 hover:shadow-lg hover:scale-105"
               >
                 Lancer Mon Projet
               </a>
@@ -96,30 +147,28 @@ export default function About() {
           </div>
         </div>
 
-        <div className="bg-gray-50 p-8 md:p-12 rounded-xl max-w-4xl mx-auto">
+        <div className="bg-gray-50 p-8 md:p-12 rounded-xl max-w-4xl mx-auto" ref={approachRef}>
           <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Notre Approche</h3>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-[rgb(240,45,58)] mb-2">1</div>
-              <h4 className="font-bold text-gray-900 mb-3">Écoute & Analyse</h4>
-              <p className="text-gray-600">
-                Immersion complète dans votre univers pour comprendre vos enjeux, votre audience et vos objectifs business.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-[rgb(240,45,58)] mb-2">2</div>
-              <h4 className="font-bold text-gray-900 mb-3">Conception & Développement</h4>
-              <p className="text-gray-600">
-                Création agile combinant design moderne, code propre et technologies de pointe pour un résultat optimal.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-[rgb(240,45,58)] mb-2">3</div>
-              <h4 className="font-bold text-gray-900 mb-3">Livraison & Support</h4>
-              <p className="text-gray-600">
-                Déploiement sécurisé, formation complète et accompagnement long terme pour garantir votre autonomie et croissance.
-              </p>
-            </div>
+            {[
+              { num: '1', title: 'Écoute & Analyse', desc: 'Immersion complète dans votre univers pour comprendre vos enjeux, votre audience et vos objectifs business.' },
+              { num: '2', title: 'Conception & Développement', desc: 'Création agile combinant design moderne, code propre et technologies de pointe pour un résultat optimal.' },
+              { num: '3', title: 'Livraison & Support', desc: 'Déploiement sécurisé, formation complète et accompagnement long terme pour garantir votre autonomie et croissance.' },
+            ].map((step, index) => (
+              <div
+                key={index}
+                className={`text-center transform transition-all duration-500 hover:bg-white hover:shadow-lg hover:p-4 rounded-lg ${
+                  visibleSections.approach
+                    ? 'scale-100 opacity-100'
+                    : 'scale-75 opacity-0'
+                }`}
+                style={{ transitionDelay: `${index * 120}ms` }}
+              >
+                <div className="text-5xl font-bold text-[rgb(240,45,58)] mb-2 transform transition-transform duration-300 hover:scale-125">{step.num}</div>
+                <h4 className="font-bold text-gray-900 mb-3">{step.title}</h4>
+                <p className="text-gray-600">{step.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
