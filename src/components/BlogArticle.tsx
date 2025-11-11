@@ -170,8 +170,13 @@ export default function BlogArticle() {
   const handleBackToBlog = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setTimeout(() => {
-      navigate('/');
-    }, 500);
+      const blogSection = document.getElementById('blog');
+      if (blogSection) {
+        blogSection.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        navigate('/');
+      }
+    }, 300);
   };
 
   if (!article) {
